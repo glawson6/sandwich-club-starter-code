@@ -73,4 +73,26 @@ public class Sandwich {
     public void setIngredients(List<String> ingredients) {
         this.ingredients = ingredients;
     }
+
+    @Override
+    public String  toString() {
+        final StringBuilder sb = new StringBuilder("Sandwich{");
+        sb.append("mainName='").append(mainName).append('\'');
+        sb.append(", alsoKnownAs=").append(alsoKnownAs);
+        sb.append(", placeOfOrigin='").append(placeOfOrigin).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", image='").append(image).append('\'');
+        sb.append(", ingredients=").append(ingredients);
+        sb.append('}');
+        return sb.toString();
+    }
+
+    public String  toTextView() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("Also Known As: ").append(alsoKnownAs).append("\n\n\n");
+        sb.append("Place Of Origin: ").append(placeOfOrigin).append("\n\n\n");
+        sb.append("Description: ").append(description).append("\n\n\n");
+        sb.append("Ingredients: ").append(ingredients).append("\n\n\n");
+        return sb.toString();
+    }
 }
