@@ -18,12 +18,12 @@ public class JsonUtils {
 
             sandwich = new Sandwich();
             JSONObject sandwhichJson = new JSONObject(json);
-            sandwich.setDescription(sandwhichJson.get("placeOfOrigin").toString());
-            sandwich.setPlaceOfOrigin(sandwhichJson.get("description").toString());
+            sandwich.setDescription(sandwhichJson.optString("description","N/A"));
+            sandwich.setPlaceOfOrigin(sandwhichJson.optString("placeOfOrigin","N/A"));
             JSONObject nameObject = (JSONObject)sandwhichJson.get("name");
-            sandwich.setMainName(nameObject.get("mainName").toString());
+            sandwich.setMainName(nameObject.optString("mainName","N/A"));
             sandwich.setAlsoKnownAs(extractList((JSONArray)nameObject.get("alsoKnownAs")));
-            sandwich.setImage(sandwhichJson.get("image").toString());
+            sandwich.setImage(sandwhichJson.optString("image","N/A"));
             sandwich.setIngredients(extractList((JSONArray)sandwhichJson.get("ingredients")));
         } catch (JSONException e) {
             e.printStackTrace();
